@@ -13,7 +13,8 @@ RUN apt-get install -y \
     python \
     daemon \
     vim \
-    jq
+    jq \
+    linux-image-$(uname -r)
     
 # remove unwanted systemd services
 RUN for i in /lib/systemd/system/sysinit.target.wants/*; do [ "${i##*/}" = "systemd-tmpfiles-setup.service" ] || rm -f "$i"; done; \
