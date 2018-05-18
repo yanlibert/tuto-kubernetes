@@ -9,3 +9,10 @@ Faire tourner ```kubeadm``` dans un conteneur est en lui même un défi qui a d�
 - soit utiliser un projet appelé [kubeadm-dind-cluster](https://github.com/Mirantis/kubeadm-dind-cluster)
 
 Puisque nous sommes dans un contexte pédagogique, nous allons implémenter la première solution.
+
+Le Dokerfile fournit permet de construire l'image ubuntu contenant ```kubeadm```. Avec le Dockerfile dans le repertoire courant, on lance
+```sh
+docker build -t kubeadm_docker .
+```
+
+Dans mon cas, l'init echouait. J'ai dû rajouter ```linux-image-$(uname -r)``` pour passer à l'étape suivante.
