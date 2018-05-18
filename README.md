@@ -15,4 +15,4 @@ Le Dokerfile fournit permet de construire l'image ubuntu contenant ```kubeadm```
 docker build -t kubeadm_docker .
 ```
 
-Dans mon cas, l'init echouait. J'ai dû rajouter ```linux-image-$(uname -r)``` pour passer à l'étape suivante.
+Dans mon cas, l'init echouait. J'ai dû rajouter ```linux-image-$(uname -r)``` au Dockerfile pour passer à l'étape suivante.
