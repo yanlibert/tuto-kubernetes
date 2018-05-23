@@ -3,7 +3,6 @@ FROM ubuntu:xenial-20161213
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -qq
-
 RUN apt-get install -y \
     apt-transport-https \
     apt-utils \
@@ -14,7 +13,7 @@ RUN apt-get install -y \
     daemon \
     vim \
     jq \
-    linux-image-$(uname -r)
+    linux-image-4.13.0-39-generic
     
 # remove unwanted systemd services
 RUN for i in /lib/systemd/system/sysinit.target.wants/*; do [ "${i##*/}" = "systemd-tmpfiles-setup.service" ] || rm -f "$i"; done; \
